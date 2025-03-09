@@ -1,4 +1,4 @@
-# ArduPilot Gazebo Plugin
+# ArduPilot Gazebo Plugin for Gazebo Ionic v9.0.0
 
 [![ubuntu-build](https://github.com/ArduPilot/ardupilot_gazebo/actions/workflows/ubuntu-build.yml/badge.svg)](https://github.com/ArduPilot/ardupilot_gazebo/actions/workflows/ubuntu-build.yml)
 [![ccplint](https://github.com/ArduPilot/ardupilot_gazebo/actions/workflows/ccplint.yml/badge.svg)](https://github.com/ArduPilot/ardupilot_gazebo/actions/workflows/ccplint.yml)
@@ -31,7 +31,7 @@ Ubuntu 20.04 in order to have the OpenGL support required for the
 (Big Sur, Monterey and Venturua; Intel and M1 devices).
 
 Follow the instructions for a binary install of
-[Gazebo Garden](https://gazebosim.org/docs/garden/install) or [Gazebo Harmonic](https://gazebosim.org/docs/harmonic/install)
+
 and verify that Gazebo is running correctly.
 
 Set up an [ArduPilot development environment](https://ardupilot.org/dev/index.html).
@@ -39,30 +39,27 @@ In the following it is assumed that you are able to run ArduPilot SITL using
 the [MAVProxy GCS](https://ardupilot.org/mavproxy/index.html).
 
 ## Installation
+1. [Install ROS2 Rolling](https://docs.ros.org/en/rolling/Installation.html)
+2. Install [Gazebo Ionic]([https://gazebosim.org/docs/garden/install](https://gazebosim.org/docs/ionic/install_ubuntu/))
+3. sudo apt-get install ros-rolling-ros-gz
+4. sudo chmod 666 /dev/dri/renderD128
+5. sudo apt-get install mesa-utils libgl1-mesa-dri
+6. sudo apt install gcc-11 g++-11 build-essential
+7. Follow instructions at [Ardupilot](https://ardupilot.org/dev/docs/building-setup-linux.html#building-setup-linux)
+8. cd ardupilot
+9. Tools/environment_install/install-prereqs-ubuntu.sh -y
+10. . ~/.profile
+11. ./waf configure --board MatekH743
+12. ./waf configure --board Pixhawk6X
+13. python3 -m pip install pexpect
+14. ./waf copter
+15. sudo apt-get install python3-dev python3-opencv python3-wxgtk4.0 python3-pip python3-matplotlib python3-lxml python3-pygame
+16. pip3 install PyYAML mavproxy --user
+17. echo 'export PATH="$PATH:$HOME/.local/bin"' >> ~/.bashrc
+18. sudo usermod -a -G dialout <user name>
+19. sudo apt install libopencv-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev gstreamer1.0-plugins-bad gstreamer1.0-libav gstreamer1.0-gl
+20. 
 
-Install additional dependencies:
-
-### Ubuntu
-
-#### Garden (apt)
-
-Manual - Gazebo Garden Dependencies:
-
-```bash
-sudo apt update
-sudo apt install libgz-sim7-dev rapidjson-dev
-sudo apt install libopencv-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev gstreamer1.0-plugins-bad gstreamer1.0-libav gstreamer1.0-gl
-```
-
-#### Harmonic (apt)
-
-Manual - Gazebo Harmonic Dependencies:
-
-```bash
-sudo apt update
-sudo apt install libgz-sim8-dev rapidjson-dev
-sudo apt install libopencv-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev gstreamer1.0-plugins-bad gstreamer1.0-libav gstreamer1.0-gl
-```
 
 #### Rosdep
 
