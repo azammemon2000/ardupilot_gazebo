@@ -28,8 +28,8 @@ if("$ENV{GZ_VERSION}" STREQUAL "harmonic" OR NOT DEFINED "ENV{GZ_VERSION}")
   gz_find_package(gz-rendering8 REQUIRED)
   set(GZ_RENDERING_VER ${gz-rendering8_VERSION_MAJOR})
 
-  gz_find_package(gz-sim8 REQUIRED)
-  set(GZ_SIM_VER ${gz-sim8_VERSION_MAJOR})
+  gz_find_package(gz-sim9 REQUIRED)
+  set(GZ_SIM_VER ${gz-sim9_VERSION_MAJOR})
 
   message(STATUS "Compiling against Gazebo Harmonic")
 # Garden
